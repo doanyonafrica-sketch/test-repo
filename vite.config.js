@@ -1,55 +1,62 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
 import fs from 'fs'
 
 export default defineConfig({
-  // ESSENTIEL pour GitHub Pages - le nom de votre repo
+  // ESSENTIEL pour GitHub Pages
   base: '/electroinfo/',
   
   root: '.',
   
   build: {
     outDir: 'dist',
-    // Copier article-detail.html vers la racine pour chaque article
+    emptyOutDir: true, // Nettoie le dossier dist avant chaque build
+    
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        article: resolve(__dirname, 'article-detail.html'),
+        articleDetail: resolve(__dirname, 'html/article-detail.html'),
+        // Ajoutez vos autres pages HTML ici si nécessaire
+        // articles: resolve(__dirname, 'html/articles.html'),
       },
     },
   },
 
   plugins: [
-    react(), // N'oubliez pas le plugin React !
+    // PAS DE PLUGIN REACT - vous utilisez HTML vanilla
     
-    // Plugin pour générer les pages d'articles statiques (build only)
+    // Plugin pour générer les pages d'articles statiques
     {
       name: 'generate-article-pages',
-      closeBundle() {
-        // Cette fonction s'exécute après le build
+      writeBundle() {
+        // writeBundle est plus sûr que closeBundle
+        // car le dossier dist est garanti d'exister
+        
         const articles = [
           'introduction-electricite',
           'courant-alternatif',
-          // Ajoutez ici tous vos slugs d'articles
-          // Ou lisez-les depuis un fichier JSON
+          'transformateurs',
+          'moteurs-electriques',
+          // Ajoutez tous vos slugs ici
         ];
         
         const distPath = resolve(__dirname, 'dist');
+        const articleTemplate = resolve(distPath, 'html/article-detail.html');
+        
+        // Vérifier que le template existe
+        if (!fs.existsSync(articleTemplate)) {
+          console.error('❌ article-detail.html non trouvé dans dist/html/');
+          return;
+        }
         
         articles.forEach(slug => {
           const articleDir = resolve(distPath, 'article', slug);
           
           // Créer le dossier article/slug
-          if (!fs.existsSync(articleDir)) {
-            fs.mkdirSync(articleDir, { recursive: true });
-          }
+          fs.mkdirSync(articleDir, { recursive: true });
           
-          // Copier article-detail.html comme index.html dans ce dossier
-          fs.copyFileSync(
-            resolve(distPath, 'article-detail.html'),
-            resolve(articleDir, 'index.html')
-          );
+          // Copier le template comme index.html
+          fs.copyFileSync(articleTemplate, resolve(articleDir, 'index.html'));
         });
         
         console.log(`✓ Généré ${articles.length} pages d'articles`);
