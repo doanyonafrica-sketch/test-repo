@@ -1,7 +1,7 @@
-// firebase-config.js - Configuration Firebase centralisée
-// ⚠️ IMPORTANT: Ce fichier contient des clés sensibles
-// Ne jamais commiter ce fichier avec de vraies clés en production
-// Utiliser les variables d'environnement ou un gestionnaire de secrets
+// firebase-config.js
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
     apiKey: process.env.FIREBASE_API_KEY || "VOTRE_API_KEY",
@@ -12,9 +12,12 @@ const firebaseConfig = {
     appId: process.env.FIREBASE_APP_ID || "VOTRE_APP_ID"
 };
 
-// Validation en développement
 if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
     console.log('🔧 Mode développement Firebase détecté');
 }
 
+const app = initializeApp(firebaseConfig);
+
+export const db = getFirestore(app);
+export const auth = getAuth(app);
 export { firebaseConfig };
