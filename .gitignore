@@ -10,8 +10,8 @@ firebase-debug.*.log*
 # Firebase cache
 .firebase/
 
-# Firebase config sensible
-config/firebase-config.js
+# Firebase config sensible (commenté - ne contient plus de clés, clés dans Vercel)
+# config/firebase-config.js
 
 # Clés de service Firebase (pas tous les JSON !)
 service-account*.json
