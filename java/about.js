@@ -5,11 +5,8 @@ import { getFirestore, collection, getDocs, query, orderBy } from 'https://www.g
 // Configuration Firebase
 const firebaseConfig = {
   apiKey: CONFIG.FIREBASE_API_KEY,
-  authDomain: "electroino-app.firebaseapp.com",
-  projectId: "electroino-app",
-  storageBucket: "electroino-app.firebasestorage.app",
-  messagingSenderId: "864058526638",
-  appId: "1:864058526638:web:17b821633c7cc99be1563f"
+  authDomain: "PLACEHOLDER_PROJECT_ID.firebaseapp.com",
+  projectId: "PLACEHOLDER_PROJECT_ID"
 };
 
 // Initialisation

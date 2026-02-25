@@ -5,12 +5,12 @@ import { getFirestore, doc, setDoc, getDoc, serverTimestamp } from 'https://www.
 
 // Configuration Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyCuFgzytJXD6jt4HUW9LVSD_VpGuFfcEAk",
-  authDomain: "electroino-app.firebaseapp.com",
-  projectId: "electroino-app",
-  storageBucket: "electroino-app.firebasestorage.app",
-  messagingSenderId: "864058526638",
-  appId: "1:864058526638:web:17b821633c7cc99be1563f"
+  apiKey: CONFIG.FIREBASE_API_KEY,
+  authDomain: CONFIG.FIREBASE_AUTH_DOMAIN,
+  projectId: CONFIG.FIREBASE_PROJECT_ID,
+  storageBucket: CONFIG.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: CONFIG.FIREBASE_MESSAGING_SENDER_ID,
+  appId: CONFIG.FIREBASE_APP_ID
 };
 
 // Initialisation

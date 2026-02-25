@@ -5,15 +5,15 @@ import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/fi
 
 // Configuration Firebase
 
-  const firebaseConfig = {
-  apiKey: "AIzaSyCuFgzytJXD6jt4HUW9LVSD_VpGuFfcEAk",
-  authDomain: "electroino-app.firebaseapp.com",
-  projectId: "electroino-app",
-  storageBucket: "electroino-app.firebasestorage.app",
-  messagingSenderId: "864058526638",
-  appId: "1:864058526638:web:17b821633c7cc99be1563f"
+const firebaseConfig = {
+    apiKey: CONFIG.FIREBASE_API_KEY
+,
+    authDomain: "electroino-app.firebaseapp.com",
+    projectId: "electroino-app",
+    storageBucket: "electroino-app.firebasestorage.app",
+    messagingSenderId: "864058526638",
+    appId: "1:864058526638:web:17b821633c7cc99be1563f"
 };
-
 // Initialisation
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);

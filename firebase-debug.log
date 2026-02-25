@@ -1,0 +1,22 @@
+[debug] [2026-02-25T19:02:13.158Z] ----------------------------------------------------------------------
+[debug] [2026-02-25T19:02:13.163Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Esther Yodi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init hosting
+[debug] [2026-02-25T19:02:13.163Z] CLI Version:   15.7.0
+[debug] [2026-02-25T19:02:13.163Z] Platform:      win32
+[debug] [2026-02-25T19:02:13.164Z] Node Version:  v24.11.1
+[debug] [2026-02-25T19:02:13.164Z] Time:          Wed Feb 25 2026 19:02:13 GMT+0000 (temps universel coordonné)
+[debug] [2026-02-25T19:02:13.164Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-02-25T19:02:13.168Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Esther Yodi\Desktop\ELECTRO-ACTU-main 2.4
+
+[debug] [2026-02-25T19:02:19.451Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2026-02-25T19:02:19.452Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}

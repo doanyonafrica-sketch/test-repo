@@ -5,7 +5,7 @@ import { getFirestore, collection, addDoc, getDocs, doc, getDoc, updateDoc, dele
 
 // Configuration Firebase
 const firebaseConfig = {
-    apiKey: "AIzaSyCuFgzytJXD6jt4HUW9LVSD_VpGuFfcEAk",
+    apiKey: CONFIG.FIREBASE_API_KEY,
     authDomain: "electroino-app.firebaseapp.com",
     projectId: "electroino-app",
     storageBucket: "electroino-app.firebasestorage.app",
