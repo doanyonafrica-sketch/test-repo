@@ -1,4 +1,4 @@
-﻿﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -98,11 +98,11 @@
                     views: 0
                 });
 
-                statusMsg.textContent = "âœ… Article publié avec succès sur electroinfo.online !";
+                statusMsg.textContent = "✅ Article publié avec succès sur electroinfo.online !";
                 statusMsg.className = "mt-4 p-4 rounded-lg text-center bg-green-100 text-green-700 block";
                 articleForm.reset();
             } catch (error) {
-                statusMsg.textContent = "âŒ Erreur : " + error.message;
+                statusMsg.textContent = "❌ Erreur : " + error.message;
                 statusMsg.className = "mt-4 p-4 rounded-lg text-center bg-red-100 text-red-700 block";
             } finally {
                 btn.disabled = false;
