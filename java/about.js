@@ -2,12 +2,8 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
 import { getFirestore, collection, getDocs, query, orderBy } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
 
-// Configuration Firebase
-const firebaseConfig = {
-  apiKey: CONFIG.FIREBASE_API_KEY,
-  authDomain: "PLACEHOLDER_PROJECT_ID.firebaseapp.com",
-  projectId: "PLACEHOLDER_PROJECT_ID"
-};
+// 🆕 Configuration Firebase externalisée
+import { firebaseConfig } from '../config/firebase-config.js';
 
 // Initialisation
 const app = initializeApp(firebaseConfig);

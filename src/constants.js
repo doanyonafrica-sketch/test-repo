@@ -561,4 +561,3 @@ export default {
     SEO,
     ANALYTICS_EVENTS
 };
-
