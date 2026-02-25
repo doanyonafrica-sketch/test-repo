@@ -42,13 +42,13 @@ export default defineConfig(({ mode }) => {
           notFound: resolve(__dirname, 'html/404.html'),
         },
 
-        // Ces fichiers JS sont servis dynamiquement à runtime,
-        // Vite ne doit pas essayer de les bundler au build
-        external: [
-          '/admin.js',
-          '/admin-enhancements.js',
-          '/archives.js',
-        ],
+        external: (id) => {
+          // Externaliser tous les fichiers JS locaux (non npm)
+          // qui ne sont pas dans node_modules
+          if (id.startsWith('/') && id.endsWith('.js')) return true
+          if (id.endsWith('.js') && !id.includes('node_modules') && !id.startsWith('.')) return true
+          return false
+        },
       },
     },
 
