@@ -2,64 +2,50 @@ import { defineConfig } from 'vite'
 import { resolve } from 'path'
 import fs from 'fs'
 
+// Lire les articles depuis le JSON
+const articlesData = JSON.parse(
+  fs.readFileSync(resolve(__dirname, 'articles.json'), 'utf-8')
+)
+const articles = articlesData.articles.map(a => a.slug)
+
+console.log(`📚 ${articles.length} articles trouvés :`, articles)
+
 export default defineConfig({
-  // ESSENTIEL pour GitHub Pages
   base: '/electroinfo/',
-  
   root: '.',
   
   build: {
     outDir: 'dist',
-    emptyOutDir: true, // Nettoie le dossier dist avant chaque build
+    emptyOutDir: true,
     
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
         articleDetail: resolve(__dirname, 'html/article-detail.html'),
-        // Ajoutez vos autres pages HTML ici si nécessaire
-        // articles: resolve(__dirname, 'html/articles.html'),
       },
     },
   },
 
   plugins: [
-    // PAS DE PLUGIN REACT - vous utilisez HTML vanilla
-    
-    // Plugin pour générer les pages d'articles statiques
     {
       name: 'generate-article-pages',
       writeBundle() {
-        // writeBundle est plus sûr que closeBundle
-        // car le dossier dist est garanti d'exister
+        const distPath = resolve(__dirname, 'dist')
+        const articleTemplate = resolve(distPath, 'html/article-detail.html')
         
-        const articles = [
-          'introduction-electricite',
-          'courant-alternatif',
-          'transformateurs',
-          'moteurs-electriques',
-          // Ajoutez tous vos slugs ici
-        ];
-        
-        const distPath = resolve(__dirname, 'dist');
-        const articleTemplate = resolve(distPath, 'html/article-detail.html');
-        
-        // Vérifier que le template existe
         if (!fs.existsSync(articleTemplate)) {
-          console.error('❌ article-detail.html non trouvé dans dist/html/');
-          return;
+          console.error('❌ article-detail.html non trouvé')
+          return
         }
         
+        // Générer une page pour chaque article du JSON
         articles.forEach(slug => {
-          const articleDir = resolve(distPath, 'article', slug);
-          
-          // Créer le dossier article/slug
-          fs.mkdirSync(articleDir, { recursive: true });
-          
-          // Copier le template comme index.html
-          fs.copyFileSync(articleTemplate, resolve(articleDir, 'index.html'));
-        });
+          const articleDir = resolve(distPath, 'article', slug)
+          fs.mkdirSync(articleDir, { recursive: true })
+          fs.copyFileSync(articleTemplate, resolve(articleDir, 'index.html'))
+        })
         
-        console.log(`✓ Généré ${articles.length} pages d'articles`);
+        console.log(`✓ ${articles.length} pages générées depuis articles.json`)
       }
     }
   ]

@@ -10,7 +10,13 @@ firebase-debug.*.log*
 # Firebase cache
 .firebase/
 
-# Firebase config
+# Firebase config sensible
+config/firebase-config.js
+
+# Clés de service Firebase (pas tous les JSON !)
+service-account*.json
+*-credentials.json
+*-adminsdk*.json
 
 # Uncomment this if you'd like others to create their own Firebase project.
 # For a team working on the same Firebase project(s), it is recommended to leave
@@ -32,16 +38,16 @@ coverage
 # nyc test coverage
 .nyc_output
 
-# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
+# Grunt intermediate storage
 .grunt
 
-# Bower dependency directory (https://bower.io/)
+# Bower dependency directory
 bower_components
 
 # node-waf configuration
 .lock-wscript
 
-# Compiled binary addons (http://nodejs.org/api/addons.html)
+# Compiled binary addons
 build/Release
 
 # Dependency directories
@@ -64,10 +70,10 @@ node_modules/
 
 # dotenv environment variables file
 .env
+.env.local
+.env.*.local
+# Ne pas ignorer .env.example (template public)
+!.env.example
 
 # dataconnect generated files
 .dataconnect
-*.json
-
-# Firebase config
-config/firebase-config.js
