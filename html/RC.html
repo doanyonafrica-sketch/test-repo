@@ -3,608 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion des Admins | Ã"°lectro-Actu</title>
-    
-    <link rel="icon" type="image/png" href="../images/logo.png">
-    <link rel="stylesheet" href="../css/admin-styles.css">
+    <title>Mentions Légales &amp; Confidentialité | ElectroInfo</title>
+    <meta name="description" content="Mentions légales, politique de confidentialité, CGU et contact d'ElectroInfo – Doanyon Africa">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../images/favicon.ico">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/mentions-legales-styles.css">
+
+    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
-    <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="nav-header">
-        <div class="nav-container">
-            <div class="nav-content">
-                <div class="nav-logo" onclick="window.location.href='admin.html'">
-                    <img src="../images/logo.png" alt="Ã"°lectro-Actu Logo" class="nav-logo-img">
-                    <span class="logo-text">GESTION ADMINS</span>
-                </div>
-                <div class="nav-actions">
-                    <a href="admin.html" class="btn-secondary">
-                        <i class="fas fa-arrow-left mr-1"></i>Retour Admin
-                    </a>
-                    <button id="logoutBtn" class="btn-danger">
-                        <i class="fas fa-sign-out-alt mr-1"></i>DÃÂ©connexion
-                    </button>
-                </div>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="../images/logo-small.png" alt="Logo ElectroInfo" class="nav-logo">
+                <span>ELECTROINFO</span>
+            </div>
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" id="navMenu">
+                <a href="../index.html">Accueil</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../courses.html">Cours</a>
+                <a href="../about.html">À propos</a>
+                <a href="/mentions-legales.html" class="active">Mentions légales</a>
             </div>
         </div>
     </nav>
 
-    <!-- Section de connexion -->
-    <div id="loginSection" class="login-section">
-        <div class="login-container">
-            <div class="login-card">
-                <div class="login-header">
-                    <i class="fas fa-shield-alt login-icon"></i>
-                    <h2 class="login-title">AccÃÂ¨s Super Admin</h2>
-                    <p class="login-subtitle">Connexion requise</p>
-                </div>
-                <form id="loginForm" class="login-form">
-                    <div class="form-group">
-                        <label class="form-label">Email</label>
-                        <input type="email" id="loginEmail" required class="form-input" placeholder="admin@electro-actu.fr">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Mot de passe</label>
-                        <input type="password" id="loginPassword" required class="form-input" placeholder="ââ‚¬Â¢ââ‚¬Â¢ââ‚¬Â¢ââ‚¬Â¢ââ‚¬Â¢ââ‚¬Â¢ââ‚¬Â¢ââ‚¬Â¢">
-                    </div>
-                    <button type="submit" class="btn-primary btn-full">
-                        <i class="fas fa-sign-in-alt mr-1"></i>Se connecter
-                    </button>
-                </form>
-            </div>
+    <!-- Hero -->
+    <header class="legal-hero">
+        <div class="container">
+            <h1><i class="fas fa-gavel"></i> Mentions Légales &amp; Confidentialité</h1>
+            <p>Informations légales, politique de confidentialité, CGU et contact</p>
         </div>
-    </div>
+    </header>
 
-    <!-- Dashboard Gestion Admins -->
-    <div id="adminDashboard" class="dashboard hidden">
-        <div class="dashboard-container">
-            
-            <div class="dashboard-header">
-                <h1 class="dashboard-title">
-                    <i class="fas fa-users-cog mr-2"></i>Gestion des Administrateurs
-                </h1>
-                <p style="color: var(--secondary); margin-top: 0.5rem;">
-                    âÅ¡ ïÂ¸Â Attention : Seul un super admin peut accÃÂ©der Ã  cette page
+    <!-- Sommaire -->
+    <main class="container">
+        <nav class="legal-nav">
+            <a href="#mentions"><i class="fas fa-info-circle"></i> Mentions légales</a>
+            <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+            <a href="#confidentialite"><i class="fas fa-shield-alt"></i> Confidentialité</a>
+            <a href="#cookies"><i class="fas fa-cookie-bite"></i> Cookies</a>
+            <a href="#cgu"><i class="fas fa-file-contract"></i> CGU</a>
+        </nav>
+
+        <!-- Mentions légales -->
+        <section id="mentions" class="legal-section">
+            <h2><i class="fas fa-info-circle"></i> Mentions légales</h2>
+
+            <h3>Édition du site</h3>
+            <p>
+                Le site <strong>electroinfo.online</strong> est un média technique édité par
+                <strong>Monsieur MONTCHO Komlan Enoch Mawuena</strong>, résidant à Lomé, Togo (07 BP 7221).
+                Ce projet préfigure le lancement de la structure <strong>Doanyon Africa</strong>.
+            </p>
+
+            <h3>Direction de la publication</h3>
+            <p><strong>Directeur :</strong> Monsieur MONTCHO Komlan Enoch Mawuena</p>
+            <p>
+                <strong>Équipe :</strong> Le contenu est produit par un collectif d'experts
+                (signés par leurs noms ou pseudonymes professionnels comme "Latour").
+            </p>
+
+            <h3>Hébergement</h3>
+            <p>
+                <strong>Nom de domaine :</strong> Amen.fr (Agence des Médias Numériques), Paris, France.
+            </p>
+            <p>
+                <strong>Serveurs :</strong> Firebase (Google Ireland Limited), Dublin, Irlande.
+            </p>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="legal-section">
+            <h2><i class="fas fa-envelope"></i> Contact</h2>
+            <p><strong>Email :</strong> <a href="mailto:doanyonafrica@gmail.com">doanyonafrica@gmail.com</a></p>
+            <p><strong>Téléphone :</strong> <a href="tel:+22892123951">+228 92 12 39 51</a></p>
+
+            <form action="mailto:doanyonafrica@gmail.com" method="post" enctype="text/plain" class="contact-form">
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="name" placeholder="Votre nom" required>
+
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" rows="5" placeholder="Votre message..." required></textarea>
+
+                <button type="submit"><i class="fas fa-paper-plane"></i> Envoyer</button>
+            </form>
+        </section>
+
+        <!-- Confidentialité -->
+        <section id="confidentialite" class="legal-section">
+            <h2><i class="fas fa-shield-alt"></i> Politique de confidentialité (RGPD)</h2>
+
+            <h3>Collecte des données</h3>
+            <p>
+                Les informations recueillies via notre newsletter (email) sont destinées
+                <strong>exclusivement</strong> à l'envoi d'actualités sur le secteur électrique et
+                technologique par <strong>Doanyon Africa</strong>.
+            </p>
+
+            <h3>Vos droits</h3>
+            <p>
+                Conformément aux règles de protection des données, vous disposez d'un droit
+                <strong>d'accès, de rectification et de suppression</strong> de vos données personnelles.
+                Pour l'exercer, contactez-nous à :
+                <a href="mailto:doanyonafrica@gmail.com">doanyonafrica@gmail.com</a>
+            </p>
+        </section>
+
+        <!-- Cookies -->
+        <section id="cookies" class="legal-section">
+            <h2><i class="fas fa-cookie-bite"></i> Cookies</h2>
+            <p>
+                Ce site utilise des cookies via <strong>Firebase</strong> et <strong>Google Analytics</strong>
+                pour améliorer votre expérience de navigation et mesurer l'audience de façon anonyme.
+            </p>
+            <p>Vous pouvez gérer ou désactiver les cookies via les paramètres de votre navigateur.</p>
+        </section>
+
+        <!-- CGU -->
+        <section id="cgu" class="legal-section">
+            <h2><i class="fas fa-file-contract"></i> Conditions Générales d'Utilisation</h2>
+
+            <h3>Propriété intellectuelle</h3>
+            <p>
+                L'ensemble des contenus (textes, graphismes, logos) publiés sur ce site sont la
+                <strong>propriété exclusive</strong> de l'éditeur au titre de la marque
+                <strong>Doanyon Africa</strong>. Toute reproduction est interdite sans autorisation.
+            </p>
+
+            <h3>⚡ Responsabilité et Sécurité – Avertissement important</h3>
+            <div class="warning-box">
+                <p>
+                    Les guides et tutoriels présents sur <strong>electroinfo.online</strong> sont fournis
+                    à titre <strong>purement informatif</strong>. L'électricité est un domaine dangereux.
+                </p>
+                <p>
+                    L'éditeur et ses contributeurs <strong>ne sauraient être tenus responsables</strong>
+                    des dommages ou accidents résultant d'une mauvaise interprétation des articles.
+                </p>
+                <p class="danger">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <strong>DANGER :</strong> Toute intervention sur une installation électrique présente
+                    des <strong>risques mortels</strong>. Nous recommandons impérativement de faire appel
+                    à un <strong>électricien qualifié</strong>.
                 </p>
             </div>
+        </section>
 
-            <!-- Statistiques -->
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon blue">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="stat-content">
-                        <p class="stat-label">Total Utilisateurs</p>
-                        <p class="stat-value" id="totalUsers">0</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon purple">
-                        <i class="fas fa-user-shield"></i>
-                    </div>
-                    <div class="stat-content">
-                        <p class="stat-label">Administrateurs</p>
-                        <p class="stat-value" id="totalAdmins">0</p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon green">
-                        <i class="fas fa-user-check"></i>
-                    </div>
-                    <div class="stat-content">
-                        <p class="stat-label">Utilisateurs Actifs</p>
-                        <p class="stat-value" id="activeUsers">0</p>
-                    </div>
-                </div>
-            </div>
+    </main>
 
-            <!-- Liste des utilisateurs -->
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="card-title">
-                        <i class="fas fa-list mr-2"></i>Liste des Utilisateurs
-                    </h2>
-                </div>
-                <div class="card-body">
-                    
-                    <!-- Filtre -->
-                    <div style="margin-bottom: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-                        <select id="roleFilter" class="form-input" style="max-width: 200px;">
-                            <option value="all">Tous les rÃÂ´les</option>
-                            <option value="admin">Admins seulement</option>
-                            <option value="user">Utilisateurs seulement</option>
-                        </select>
-                        <input type="text" id="searchUser" class="form-input" placeholder="Rechercher par email..." style="flex: 1; max-width: 400px;">
-                    </div>
-
-                    <div id="usersList" class="users-list">
-                        <div class="loading-container">
-                            <i class="fas fa-spinner fa-spin loading-icon"></i>
-                            <p class="loading-text">Chargement...</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 ElectroInfo – Doanyon Africa. Tous droits réservés.</p>
+            <p>
+                <a href="../index.html">Accueil</a> |
+                <a href="../articles.html">Articles</a> |
+                <a href="../courses.html">Cours</a> |
+                <a href="../about.html">À propos</a> |
+                <a href="/mentions-legales.html">Mentions légales</a>
+            </p>
         </div>
-    </div>
+    </footer>
 
     <script>
-        // Configuration Firebase
-        const firebaseConfig = {
-            apiKey: "AIzaSyAlBDedWLbHG-3UnijsSfocm77sNpn15Wg",
-            authDomain: "electroactu-b6050.firebaseapp.com",
-            projectId: "electroactu-b6050",
-            storageBucket: "electroactu-b6050.firebasestorage.app",
-            messagingSenderId: "890343912768",
-            appId: "1:890343912768:web:87de595f6df3c3f434f6a5"
-        };
-
-        // Initialisation Firebase
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
-        const auth = firebase.auth();
-
-        let currentUser = null;
-        let allUsers = [];
-
-        // Ã"°lÃÂ©ments DOM
-        const loginSection = document.getElementById('loginSection');
-        const adminDashboard = document.getElementById('adminDashboard');
-        const loginForm = document.getElementById('loginForm');
-        const logoutBtn = document.getElementById('logoutBtn');
-        const usersList = document.getElementById('usersList');
-        const roleFilter = document.getElementById('roleFilter');
-        const searchUser = document.getElementById('searchUser');
-
-        // Gestion de l'authentification
-        auth.onAuthStateChanged(async (user) => {
-            if (user) {
-                // VÃÂ©rifier si l'utilisateur est admin
-                const userDoc = await db.collection('users').doc(user.uid).get();
-                
-                if (userDoc.exists && userDoc.data().role === 'admin') {
-                    currentUser = user;
-                    loginSection.classList.add('hidden');
-                    adminDashboard.classList.remove('hidden');
-                    loadUsers();
-                } else {
-                    showNotification('AccÃÂ¨s refusÃÂ©. Vous n\'ÃÂªtes pas administrateur.', 'error');
-                    auth.signOut();
-                }
-            } else {
-                loginSection.classList.remove('hidden');
-                adminDashboard.classList.add('hidden');
-            }
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+        mobileToggle?.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
         });
-
-        // Connexion
-        loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-            
-            try {
-                await auth.signInWithEmailAndPassword(email, password);
-                showNotification('Connexion rÃÂ©ussie !', 'success');
-            } catch (error) {
-                console.error('Erreur:', error);
-                showNotification('Erreur de connexion: ' + error.message, 'error');
-            }
-        });
-
-        // DÃÂ©connexion
-        logoutBtn.addEventListener('click', async () => {
-            try {
-                await auth.signOut();
-                showNotification('DÃÂ©connexion rÃÂ©ussie', 'success');
-            } catch (error) {
-                console.error('Erreur:', error);
-                showNotification('Erreur lors de la dÃÂ©connexion', 'error');
-            }
-        });
-
-        // Charger tous les utilisateurs
-        async function loadUsers() {
-            usersList.innerHTML = `
-                <div class="loading-container">
-                    <i class="fas fa-spinner fa-spin loading-icon"></i>
-                    <p class="loading-text">Chargement...</p>
-                </div>
-            `;
-
-            try {
-                const snapshot = await db.collection('users').get();
-                
-                allUsers = [];
-                snapshot.forEach(doc => {
-                    allUsers.push({ id: doc.id, ...doc.data() });
-                });
-
-                updateStats();
-                displayUsers(allUsers);
-
-            } catch (error) {
-                console.error('Erreur:', error);
-                usersList.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <p style="color: #dc2626;">Erreur lors du chargement</p>
-                    </div>
-                `;
-            }
-        }
-
-        // Mettre Ã  jour les statistiques
-        function updateStats() {
-            const admins = allUsers.filter(u => u.role === 'admin');
-            
-            document.getElementById('totalUsers').textContent = allUsers.length;
-            document.getElementById('totalAdmins').textContent = admins.length;
-            document.getElementById('activeUsers').textContent = allUsers.length - admins.length;
-        }
-
-        // Afficher les utilisateurs
-        function displayUsers(users) {
-            if (users.length === 0) {
-                usersList.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-users"></i>
-                        <p>Aucun utilisateur trouvÃÂ©</p>
-                    </div>
-                `;
-                return;
-            }
-
-            usersList.innerHTML = '';
-
-            users.forEach(user => {
-                const userCard = createUserCard(user);
-                usersList.appendChild(userCard);
-            });
-        }
-
-        // CrÃÂ©er une carte utilisateur
-        function createUserCard(user) {
-            const div = document.createElement('div');
-            div.className = 'user-item';
-            
-            const isAdmin = user.role === 'admin';
-            const roleClass = isAdmin ? 'admin-badge' : 'user-badge';
-            const roleText = isAdmin ? 'Admin' : 'Utilisateur';
-            
-            const joinDate = user.createdAt 
-                ? new Date(user.createdAt.toDate()).toLocaleDateString('fr-FR')
-                : 'Date inconnue';
-
-            div.innerHTML = `
-                <div class="user-info">
-                    <div class="user-avatar">
-                        ${user.photoURL 
-                            ? `<img src="${user.photoURL}" alt="${user.name}">`
-                            : `<i class="fas fa-user"></i>`
-                        }
-                    </div>
-                    <div class="user-details">
-                        <h3 class="user-name">${escapeHtml(user.name || 'Sans nom')}</h3>
-                        <p class="user-email">${escapeHtml(user.email)}</p>
-                        <p class="user-date">Inscrit le ${joinDate}</p>
-                    </div>
-                </div>
-                <div class="user-actions">
-                    <span class="${roleClass}">${roleText}</span>
-                    ${!isAdmin 
-                        ? `<button class="btn-promote" onclick="promoteToAdmin('${user.id}', '${escapeHtml(user.email)}')">
-                            <i class="fas fa-arrow-up mr-1"></i>Promouvoir Admin
-                        </button>`
-                        : `<button class="btn-demote" onclick="demoteFromAdmin('${user.id}', '${escapeHtml(user.email)}')">
-                            <i class="fas fa-arrow-down mr-1"></i>Retirer Admin
-                        </button>`
-                    }
-                </div>
-            `;
-
-            return div;
-        }
-
-        // Promouvoir en admin
-        async function promoteToAdmin(userId, userEmail) {
-            if (!confirm(`Voulez-vous vraiment promouvoir "${userEmail}" en administrateur ?`)) {
-                return;
-            }
-
-            try {
-                await db.collection('users').doc(userId).update({
-                    role: 'admin'
-                });
-
-                showNotification('Utilisateur promu en admin avec succÃÂ¨s !', 'success');
-                loadUsers();
-
-            } catch (error) {
-                console.error('Erreur:', error);
-                showNotification('Erreur lors de la promotion: ' + error.message, 'error');
-            }
-        }
-
-        // Retirer le rÃÂ´le admin
-        async function demoteFromAdmin(userId, userEmail) {
-            // EmpÃÂªcher de se retirer soi-mÃÂªme
-            if (userId === currentUser.uid) {
-                showNotification('Vous ne pouvez pas retirer votre propre rÃÂ´le admin !', 'error');
-                return;
-            }
-
-            if (!confirm(`Voulez-vous vraiment retirer le rÃÂ´le admin de "${userEmail}" ?`)) {
-                return;
-            }
-
-            try {
-                await db.collection('users').doc(userId).update({
-                    role: 'user'
-                });
-
-                showNotification('RÃÂ´le admin retirÃÂ© avec succÃÂ¨s !', 'success');
-                loadUsers();
-
-            } catch (error) {
-                console.error('Erreur:', error);
-                showNotification('Erreur: ' + error.message, 'error');
-            }
-        }
-
-        // Filtrer les utilisateurs
-        roleFilter.addEventListener('change', filterUsers);
-        searchUser.addEventListener('input', filterUsers);
-
-        function filterUsers() {
-            const roleValue = roleFilter.value;
-            const searchValue = searchUser.value.toLowerCase();
-
-            let filtered = allUsers;
-
-            // Filtre par rÃÂ´le
-            if (roleValue !== 'all') {
-                filtered = filtered.filter(u => u.role === roleValue);
-            }
-
-            // Filtre par recherche
-            if (searchValue) {
-                filtered = filtered.filter(u => 
-                    u.email.toLowerCase().includes(searchValue) ||
-                    (u.name && u.name.toLowerCase().includes(searchValue))
-                );
-            }
-
-            displayUsers(filtered);
-        }
-
-        // Fonction de notification
-        function showNotification(message, type = 'info') {
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 5rem;
-                right: 1rem;
-                background-color: ${type === 'success' ? '#16a34a' : type === 'error' ? '#dc2626' : '#3b82f6'};
-                color: white;
-                padding: 1rem 1.5rem;
-                border-radius: 0.5rem;
-                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-                z-index: 1000;
-                animation: slideIn 0.3s ease-out;
-                max-width: 20rem;
-            `;
-            
-            notification.innerHTML = `
-                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
-                    <span>${escapeHtml(message)}</span>
-                </div>
-            `;
-            
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.style.animation = 'slideOut 0.3s ease-out';
-                setTimeout(() => {
-                    document.body.removeChild(notification);
-                }, 300);
-            }, 3000);
-        }
-
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-
-        // Animations
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from {
-                    transform: translateX(100%);
-                    opacity: 0;
-                }
-                to {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-            }
-            
-            @keyframes slideOut {
-                from {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-                to {
-                    transform: translateX(100%);
-                    opacity: 0;
-                }
-            }
-
-            .users-list {
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .user-item {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 1.5rem;
-                background: var(--light);
-                border-radius: 0.75rem;
-                border: 2px solid transparent;
-                transition: all 0.3s;
-                gap: 1rem;
-                flex-wrap: wrap;
-            }
-
-            .user-item:hover {
-                border-color: var(--primary);
-                background: white;
-                box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
-            }
-
-            .user-info {
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-                flex: 1;
-            }
-
-            .user-avatar {
-                width: 3.5rem;
-                height: 3.5rem;
-                border-radius: 50%;
-                background: var(--primary);
-                color: white;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 1.5rem;
-                overflow: hidden;
-                flex-shrink: 0;
-            }
-
-            .user-avatar img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-
-            .user-details {
-                flex: 1;
-            }
-
-            .user-name {
-                font-size: 1.125rem;
-                font-weight: 700;
-                color: var(--dark);
-                margin: 0;
-            }
-
-            .user-email {
-                font-size: 0.875rem;
-                color: var(--secondary);
-                margin: 0.25rem 0 0;
-            }
-
-            .user-date {
-                font-size: 0.75rem;
-                color: var(--secondary);
-                margin: 0.25rem 0 0;
-            }
-
-            .user-actions {
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-                flex-wrap: wrap;
-            }
-
-            .admin-badge,
-            .user-badge {
-                padding: 0.5rem 1rem;
-                border-radius: 1rem;
-                font-size: 0.875rem;
-                font-weight: 600;
-            }
-
-            .admin-badge {
-                background: linear-gradient(135deg, #a855f7, #9333ea);
-                color: white;
-            }
-
-            .user-badge {
-                background: var(--light);
-                color: var(--secondary);
-                border: 1px solid #cbd5e1;
-            }
-
-            .btn-promote,
-            .btn-demote {
-                padding: 0.625rem 1.25rem;
-                border: none;
-                border-radius: 0.5rem;
-                font-weight: 600;
-                cursor: pointer;
-                transition: all 0.3s;
-                display: flex;
-                align-items: center;
-                font-size: 0.875rem;
-            }
-
-            .btn-promote {
-                background: var(--success);
-                color: white;
-            }
-
-            .btn-promote:hover {
-                background: #15803d;
-                transform: translateY(-2px);
-            }
-
-            .btn-demote {
-                background: var(--danger);
-                color: white;
-            }
-
-            .btn-demote:hover {
-                background: #b91c1c;
-                transform: translateY(-2px);
-            }
-
-            @media (max-width: 768px) {
-                .user-item {
-                    flex-direction: column;
-                    align-items: flex-start;
-                }
-
-                .user-actions {
-                    width: 100%;
-                    justify-content: space-between;
-                }
-
-                .btn-promote,
-                .btn-demote {
-                    flex: 1;
-                }
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>
