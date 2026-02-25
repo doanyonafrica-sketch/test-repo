@@ -41,6 +41,14 @@ export default defineConfig(({ mode }) => {
           mentions: resolve(__dirname, 'html/mentions-legales.html'),
           notFound: resolve(__dirname, 'html/404.html'),
         },
+
+        // Ces fichiers JS sont servis dynamiquement à runtime,
+        // Vite ne doit pas essayer de les bundler au build
+        external: [
+          '/admin.js',
+          '/admin-enhancements.js',
+          '/archives.js',
+        ],
       },
     },
 
