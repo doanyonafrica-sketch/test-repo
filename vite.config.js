@@ -3,14 +3,12 @@ import { resolve } from 'path'
 import fs from 'fs'
 
 export default defineConfig(({ mode }) => {
-  // Charger les variables d'environnement selon le mode (dev/prod)
   const env = loadEnv(mode, process.cwd(), '')
 
   return {
-    base: '/',  // Vercel sert depuis la racine, pas /electroinfo/
+    base: '/',
     root: '.',
 
-    // Définir les variables d'environnement accessibles dans le navigateur
     define: {
       __FIREBASE_API_KEY__: JSON.stringify(env.FIREBASE_API_KEY),
       __FIREBASE_AUTH_DOMAIN__: JSON.stringify(env.FIREBASE_AUTH_DOMAIN),
@@ -27,7 +25,21 @@ export default defineConfig(({ mode }) => {
       rollupOptions: {
         input: {
           main: resolve(__dirname, 'index.html'),
+          home: resolve(__dirname, 'html/index.html'),
+          articles: resolve(__dirname, 'html/articles.html'),
           articleDetail: resolve(__dirname, 'html/article-detail.html'),
+          courses: resolve(__dirname, 'html/courses.html'),
+          courseDetail: resolve(__dirname, 'html/course-detail.html'),
+          about: resolve(__dirname, 'html/about.html'),
+          contact: resolve(__dirname, 'html/contact.html'),
+          auth: resolve(__dirname, 'html/auth.html'),
+          admin: resolve(__dirname, 'html/admin.html'),
+          archives: resolve(__dirname, 'html/archives.html'),
+          dashboard: resolve(__dirname, 'html/dashboard.html'),
+          privacy: resolve(__dirname, 'html/privacy.html'),
+          terms: resolve(__dirname, 'html/terms.html'),
+          mentions: resolve(__dirname, 'html/mentions-legales.html'),
+          notFound: resolve(__dirname, 'html/404.html'),
         },
       },
     },
@@ -39,7 +51,6 @@ export default defineConfig(({ mode }) => {
           const distPath = resolve(__dirname, 'dist')
           const articleTemplate = resolve(distPath, 'html/article-detail.html')
 
-          // Générer les pages articles depuis articles.json si le fichier existe
           const articlesJsonPath = resolve(__dirname, 'articles.json')
           if (!fs.existsSync(articlesJsonPath)) {
             console.warn('⚠️ articles.json non trouvé, pages articles non générées')
@@ -60,7 +71,7 @@ export default defineConfig(({ mode }) => {
             fs.copyFileSync(articleTemplate, resolve(articleDir, 'index.html'))
           })
 
-          console.log(`✓ ${articles.length} pages générées depuis articles.json`)
+          console.log(`✓ ${articles.length} pages générées`)
         }
       }
     ]
